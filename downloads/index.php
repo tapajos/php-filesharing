@@ -9,7 +9,6 @@
 session_start();
 include '../funcoes/funcoesDeArquivos.inc';
 include '../funcoes/funcoesPostEgets.inc';
-variaveisViaPost();
 ?>
 <html> 
 <head> 
@@ -53,50 +52,50 @@ variaveisViaPost();
   </tr> 
 
 <?php 
-$listar="../arquivos"; //colocar aqui o nome do diretório a ser listado
-$diretorio=$id;
-if ($dir=opendir("$listar/".$diretorio)){ 
-	while(($arquivos=readdir($dir)) !== false){ 
-		if ($arquivos <> "." && $arquivos <> ".." ){ 
-			$tamanho[] = filesize("$listar/".$diretorio."/".$arquivos); 
-			$data_hora[] = filemtime	("$listar/".$diretorio."/".$arquivos); 
-			$nome_arquivo[] = $arquivos; 
+$list="../arquivos"; //colocar aqui o nome do diretório a ser listado
+$directory=$_POST["id"];
+if ($dir=opendir("$list/".$directory)){ 
+	while(($files=readdir($dir)) !== false){ 
+		if ($files <> "." && $files <> ".." ){ 
+			$size[] = filesize("$list/".$directory."/".$files); 
+			$datetime[] = filemtime	("$list/".$directory."/".$files); 
+			$file_name[] = $files; 
 		} 
 	} 
 	closedir($dir); 
 } 
  
-$n_arquivos = count($data_hora); 
-arsort($data_hora); 
-reset($data_hora); 
+$n_files = count($datetime); 
+arsort($datetime); 
+reset($datetime); 
 $indice=0;
-while (list ($chave, $valor) = each ($data_hora)){ 
+while (list ($key, $value) = each ($datetime)){ 
 ?>
   <form name="form<?echo $indice;?>" action="index.php" method="post">
   <tr> 
     <td>
-    		<input type="hidden" name="id" value="<?echo $diretorio."/".$nome_arquivo[$chave];?>">
+    		<input type="hidden" name="id" value="<?echo $directory."/".$file_name[$key];?>">
      	<a href="<?php 
-     		if (!is_dir($listar."/".$diretorio."/".$nome_arquivo[$chave])) {
-     			echo "$listar".$diretorio."/".$nome_arquivo[$chave];
+     		if (!is_dir($list."/".$directory."/".$file_name[$key])) {
+     			echo "$list".$directory."/".$file_name[$key];
      		}
      		else {
      			echo "#\" onclick='form".$indice.".submit();'";
      		} ?>">
-     		<?php echo $nome_arquivo[$chave]; ?>
+     		<?php echo $file_name[$key]; ?>
      	</a>
 	</td> 
     <td align="center" >
-		<?php if (!is_dir($listar."/".$diretorio."/".$nome_arquivo[$chave])){
-			echo date("d/m/Y-H:s",$valor);
+		<?php if (!is_dir($list."/".$directory."/".$file_name[$key])){
+			echo date("d/m/Y-H:s",$value);
 		}
 		else {
 			echo ("Diretorio");
 		} ?> 
     </td> 
     <td align="center" >
-		<?php if (!is_dir($listar."/".$diretorio."/".$nome_arquivo[$chave])){
-			echo MostraTamanhosDeFormaAmigavel($tamanho[$chave]);
+		<?php if (!is_dir($list."/".$directory."/".$file_name[$key])){
+			echo HumanizeFileSize($size[$key]);
 		}
 		else {
 			echo ("Diretorio");
@@ -114,9 +113,9 @@ clearstatcache();
 <br>
 <center>
 	<?
-	$gera_novo_id = explode ("/",$diretorio);
-	for ($i=1;$i<sizeof($gera_novo_id)-1;$i++){
-		$new_id = $new_id."/".$gera_novo_id[$i];
+	$actual_id = explode ("/",$directory);
+	for ($i=1;$i<sizeof($actual_id)-1;$i++){
+		$new_id = $new_id."/".$actual_id[$i];
 	}
 	?>
 	<form name="formback" action="index.php" method="post">

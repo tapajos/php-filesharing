@@ -1,23 +1,23 @@
 <?php
  
- function MostraTamanhosDeFormaAmigavel($tamanho) {
+ function HumanizeFileSize($size) {
    $unidade = "bytes";
    
-   if ($tamanho > 1024) {
-       $tamanho = ($tamanho / 1024);
+   if ($size > 1024) {
+       $size = ($size / 1024);
        $unidade = "KB"; }
-   if ($tamanho > 1024) {
-       $tamanho = ($tamanho / 1024);
+   if ($size > 1024) {
+       $size = ($size / 1024);
        $unidade = "MB"; }
-   if ($tamanho > 1024) {
-       $tamanho = ($tamanho / 1024);
+   if ($size > 1024) {
+       $size = ($size / 1024);
        $unidade = "GB"; }
-   if ($tamanho > 1024) {
-       $tamanho = ($tamanho / 1024);
+   if ($size > 1024) {
+       $size = ($size / 1024);
        $unidade = "TB"; }
    
-   $tamanho = round($tamanho, 0);
-   return $tamanho." ".$unidade;
+   $size = round($size, 0);
+   return $size." ".$unidade;
 }
  
 ?>
