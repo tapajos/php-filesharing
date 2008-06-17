@@ -1,14 +1,6 @@
 <?
-##################################################################
-####  Autor: Marcos Tapajos                                   ####
-####  Email: tapajos@gmail.com                                ####
-####  Data:  09/03/2005                                       ####
-####  Este script é para livre distribuição. Caso ache alguma ####
-####  forma melhor de fazer isso favor reportar.              ####
-##################################################################
 session_start();
-include '../funcoes/funcoesDeArquivos.inc';
-include '../funcoes/funcoesPostEgets.inc';
+include '../functions/files.inc';
 ?>
 <html> 
 <head> 
@@ -52,7 +44,7 @@ include '../funcoes/funcoesPostEgets.inc';
   </tr> 
 
 <?php 
-$list="../arquivos"; //colocar aqui o nome do diretório a ser listado
+$list="../arquivos";
 $directory=$_POST["id"];
 if ($dir=opendir("$list/".$directory)){ 
 	while(($files=readdir($dir)) !== false){ 
@@ -90,7 +82,7 @@ while (list ($key, $value) = each ($datetime)){
 			echo date("d/m/Y-H:s",$value);
 		}
 		else {
-			echo ("Diretorio");
+			echo ("Diretório");
 		} ?> 
     </td> 
     <td align="center" >
@@ -98,7 +90,7 @@ while (list ($key, $value) = each ($datetime)){
 			echo HumanizeFileSize($size[$key]);
 		}
 		else {
-			echo ("Diretorio");
+			echo ("Diretório");
 		}?> 
     </td> 
   </tr> 
