@@ -16,9 +16,16 @@ In the index.php you need to change the line that defines the directory to find 
 	$list="/home/tapajos/public_html/files";
 	
 The directory should read permission for your webserver user. A good idea is to use the 755 permission.
+
+## License
+
+This code is free to be used under the terms of the [MIT license][mit].
+
+
 	
 ## AUTHOR
 
 [Marcos Tapajós][t]
 
 [t]:http://www.improveit.com.br/en/company/tapajos
+[mit]:	http://www.opensource.org/licenses/mit-license.php
