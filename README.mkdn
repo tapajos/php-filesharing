@@ -17,12 +17,10 @@ In the index.php you need to change the line that defines the directory to find 
 	
 The directory should read permission for your webserver user. A good idea is to use the 755 permission.
 
-## License
+## LICENSE
 
 This code is free to be used under the terms of the [MIT license][mit].
 
-
-	
 ## AUTHOR
 
 [Marcos Tapajós][t]
