@@ -1,0 +1,24 @@
+# File Sharing
+
+## WHAT
+
+File Sharing is a very very simple way to share your files using a web page.
+It is a very old project that now has turned public. The source is not in english but it will be translated soon.
+
+## INSTALLING
+
+The install is very simple, you only need to copy the files to your document root in a webserver running PHP.
+
+## USAGE
+
+In the index.php you need to change the line that defines the directory to find all files to share. For example:
+
+	$listar="/home/tapajos/public_html/files";
+	
+The directory should read permission for your webserver user. A good idea is to use the 755 permission.
+	
+## AUTHOR
+
+[Marcos Tapajós][t]
+
+[t]:http://www.improveit.com.br/en/company/tapajos

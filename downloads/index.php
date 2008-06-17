@@ -1,7 +1,7 @@
 <?
 ##################################################################
 ####  Autor: Marcos Tapajos                                   ####
-####  Email: tapajos@dcc.ufrj.br                              ####
+####  Email: tapajos@gmail.com                                ####
 ####  Data:  09/03/2005                                       ####
 ####  Este script é para livre distribuição. Caso ache alguma ####
 ####  forma melhor de fazer isso favor reportar.              ####
