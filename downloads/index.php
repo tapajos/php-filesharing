@@ -9,9 +9,7 @@
 session_start();
 include '../funcoes/funcoesDeArquivos.inc';
 include '../funcoes/funcoesPostEgets.inc';
-include '../funcoes/funcoesDeLogin.inc';
 variaveisViaPost();
-validaLoginTosco($login,$senha);
 ?>
 <html> 
 <head> 
@@ -28,27 +26,6 @@ validaLoginTosco($login,$senha);
 		</h1>
 	</center>
 </blink>
-
-
-<? if (!verificaLogado()) { ?>
-	
-  <form action="index.php" method="post">
-  <center>  
-  <table>
-    <tr>
-      <td>Login: </td><td><input type="text" name="login" size="40" maxlength="40"/></td>
-    </tr>
-    <tr>
-      <td>Senha: </td><td><input type="password" name="senha" size="40" maxlength="40"/></td>
-    </tr>
-    <tr>
-      <td><input type="submit" value ="confirmar"/></td><td><input type="reset" name="name" value="limpar"/></td>
-    </tr>
-  </table>
-  </center>
-  </form>
-  
-<? } else { ?>
 
 <table width="700" border="1" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC" align="center"> 
   <tr bgcolor="#666666"> 
@@ -147,6 +124,5 @@ clearstatcache();
 		Clique <a href="#" onclick="formback.submit();">aqui</a> para voltar um nivel na navegação pelos diretorios
 	<form>
 </center>
-<? }?>
 </body> 
 </html> 
