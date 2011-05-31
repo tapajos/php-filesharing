@@ -23,28 +23,28 @@ include '../functions/files.inc';
     <td width="450" align="center">
     		<b>
     			<font color="#FFFFFF">
-    				Arquivo
+    				File
     			</font>
     		</b>
     	</td> 
     <td width="150" align="center">
     		<b>
     			<font color="#FFFFFF">
-    				Data e hora de envio do arquivo
+    				Date
     			</font>
     		</b>
     	</td> 
     <td width="100" align="center">
     		<b>
     			<font color="#FFFFFF">
-    				Tamanho
+    				Size
     			</font>
     		</b>
     	</td> 
   </tr> 
 
 <?php 
-$list="../arquivos";
+$list="../files";
 $directory=realpath($_POST["id"]);
 if ($dir=opendir("$list/".$directory)){ 
 	while(($files=readdir($dir)) !== false){ 
@@ -82,7 +82,7 @@ while (list ($key, $value) = each ($datetime)){
 			echo date("d/m/Y-H:s",$value);
 		}
 		else {
-			echo ("Diretório");
+			echo ("Directory");
 		} ?> 
     </td> 
     <td align="center" >
@@ -90,7 +90,7 @@ while (list ($key, $value) = each ($datetime)){
 			echo HumanizeFileSize($size[$key]);
 		}
 		else {
-			echo ("Diretório");
+			echo ("Directory");
 		}?> 
     </td> 
   </tr> 
@@ -112,7 +112,7 @@ clearstatcache();
 	?>
 	<form name="formback" action="index.php" method="post">
 		<input type="hidden" name="id" value="<?echo ($new_id);?>" size="40" maxlength="40"/>
-		Clique <a href="#" onclick="formback.submit();">aqui</a> para voltar um nivel na navegação pelos diretorios
+		Click <a href="#" onclick="formback.submit();">here</a> to back.
 	<form>
 </center>
 </body> 
