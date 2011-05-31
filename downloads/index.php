@@ -45,7 +45,7 @@ include '../functions/files.inc';
 
 <?php 
 $list="../arquivos";
-$directory=$_POST["id"];
+$directory=realpath($_POST["id"]);
 if ($dir=opendir("$list/".$directory)){ 
 	while(($files=readdir($dir)) !== false){ 
 		if ($files <> "." && $files <> ".." ){ 
